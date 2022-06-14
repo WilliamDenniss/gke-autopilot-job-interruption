@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: longjob
+spec:
+  template:
+    spec:
+      containers:
+        - name: longjob
+          image: ghcr.io/alexgartner-bc/gke-autopilot-job-interruption/example-job
+          args: ["15m"]
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: 4096Mi
+              cpu: 4000m
+      restartPolicy: OnFailure
