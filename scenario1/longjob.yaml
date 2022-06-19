@@ -4,6 +4,9 @@ metadata:
   name: longjob
 spec:
   template:
+    metadata:
+      labels:
+        job: longjob
     spec:
       containers:
         - name: longjob
